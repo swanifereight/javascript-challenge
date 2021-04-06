@@ -17,10 +17,13 @@ function buildTable(data) {
 function handleCLick() {
 	const date = d3.select("#datetime").property("value")
 	let filteredData = tableData;
-	if (date) {
+	if (datetime) {
 		filteredData = filteredData.filter(row => row.datetime == date);
 	}
 
 	buildTable(filteredData);
 
 }
+
+d3.selectAll("#filter-btn").on("click", handleCLick)
+buildTable(tableData);
