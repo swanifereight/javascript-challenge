@@ -13,3 +13,14 @@ function buildTable(data) {
 		});
 	}
 }
+
+function handleCLick() {
+	const date = d3.select("#datetime").property("value")
+	let filteredData = tableData;
+	if (date) {
+		filteredData = filteredData.filter(row => row.datetime == date);
+	}
+
+	buildTable(filteredData);
+
+}
